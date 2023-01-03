@@ -1,0 +1,7 @@
+Use the following command to update package.json:
+
+npx npm-check-updates -u
+npm install
+
+Remember to downgrade terser to  comment out // sourceMap: true,
+in webpack.config.js
