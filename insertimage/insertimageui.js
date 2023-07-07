@@ -22,7 +22,7 @@ export default class InsertImageUI extends Plugin {
 			const view = new ButtonView( locale );
 
 			view.set( {
-				label: t( 'Insert image from this website.' ),
+				label: t( 'Insert image uploaded to this website.' ),
 				icon: addImageIcon,
 				tooltip: true
 			} );

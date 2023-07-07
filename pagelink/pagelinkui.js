@@ -5,6 +5,7 @@
 
 import { Plugin, icons } from '@ckeditor/ckeditor5-core';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
+import addPageLinkIcon from './theme/addPageLink.svg';
 
 export default class PageLinkUI extends Plugin {
     init() {
@@ -15,8 +16,8 @@ export default class PageLinkUI extends Plugin {
             const button = new ButtonView(locale);
 
             button.set({
-                label: t('Insert a link to a page.'),
-                icon: icons.plus,
+                label: t('Insert a link to a page on this website.'),
+                icon: addPageLinkIcon,
                 tooltip: true
             });
 

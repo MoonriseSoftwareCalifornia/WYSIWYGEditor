@@ -5,6 +5,8 @@
 
 // The editor creator to use.
 import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor';
+// Watchdog to restore editor when it crashes
+import EditorWatchdog from '@ckeditor/ckeditor5-watchdog/src/editorwatchdog';
 
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
 import AutoSave from '@ckeditor/ckeditor5-autosave/src/autosave';
@@ -57,13 +59,12 @@ import PageLink from '../pagelink/pagelink';
 import VSCodeEditor from '../vscodeeditor/vscodeeditor';
 import FileLink from '../filelink/filelink';
 import InsertImage from '../insertimage/insertimage';
+import SignalR from '../signalr/signalr';
 // END Cosmos WPS plugins
-
-
 
 import '../theme/theme.css';
 
-export default class BalloonEditor extends BalloonEditorBase { }
+class BalloonEditor extends BalloonEditorBase { }
 
 // Plugins to include in the build.
 BalloonEditor.builtinPlugins = [
@@ -107,6 +108,7 @@ BalloonEditor.builtinPlugins = [
 	PasteFromOffice,
 	RemoveFormat,
 	SimpleUploadAdapter,
+	SignalR,
 	Table,
 	TableCaption,
 	TableCellProperties,
@@ -122,38 +124,38 @@ BalloonEditor.builtinPlugins = [
 BalloonEditor.defaultConfig = {
 	blockToolbar: [
 		'pageLink',
-		'vsCodeEditor',
 		'fileLink',
+		'link',
+		'|',
 		'insertImage',
+		'imageInsert',
+		'mediaEmbed',
+		'|',
+		'vsCodeEditor',
+		'findAndReplace',
+		'codeBlock',
 		'|',
 		'heading',
 		'|',
 		'bold',
 		'italic',
-		'link',
+		'fontColor',
+		'underline',
+		'fontSize',
 		'bulletedList',
 		'numberedList',
 		'|',
 		'outdent',
 		'indent',
+		'alignment',
 		'|',
-		'mediaEmbed',
-		'imageUpload',
-		'blockQuote',
-		'insertTable',
-		'mediaEmbed',
 		'undo',
 		'redo',
-		'codeBlock',
-		'findAndReplace',
-		'fontColor',
 		'horizontalLine',
 		'highlight',
-		'imageInsert',
-		'removeFormat',
-		'underline',
-		'fontSize',
-		'alignment'
+		'blockQuote',
+		'insertTable',
+		'removeFormat'
 	],
 	toolbar: {
 		items: [
@@ -214,3 +216,5 @@ BalloonEditor.defaultConfig = {
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
+
+export default { BalloonEditor, EditorWatchdog };

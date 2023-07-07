@@ -22,7 +22,7 @@ export default class FileLinkUI extends Plugin {
 			const view = new ButtonView( locale );
 
 			view.set( {
-				label: t( 'Link to a file.' ),
+				label: t( 'Link to file uploaded to this website.' ),
 				icon: browseFileIcon,
 				tooltip: true
 			} );
