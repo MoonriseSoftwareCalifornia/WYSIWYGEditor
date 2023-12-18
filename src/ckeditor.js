@@ -22,6 +22,7 @@ import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import FindAndReplace from '@ckeditor/ckeditor5-find-and-replace/src/findandreplace.js';
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
+import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
@@ -62,6 +63,9 @@ import InsertImage from '../insertimage/insertimage';
 import SignalR from '../signalr/signalr';
 // END Cosmos WPS plugins
 
+// Collaboration
+//import { RealTimeCollaborativeEditing } from '@ckeditor/ckeditor5-real-time-collaboration';
+
 import '../theme/theme.css';
 
 class BalloonEditor extends BalloonEditorBase { }
@@ -83,6 +87,7 @@ BalloonEditor.builtinPlugins = [
 	FindAndReplace,
 	FontColor,
 	FontSize,
+	GeneralHtmlSupport,
 	Heading,
 	Highlight,
 	HorizontalLine,
@@ -121,100 +126,8 @@ BalloonEditor.builtinPlugins = [
 ];
 
 // Editor configuration.
-BalloonEditor.defaultConfig = {
-	blockToolbar: [
-		'pageLink',
-		'fileLink',
-		'link',
-		'|',
-		'insertImage',
-		'imageInsert',
-		'mediaEmbed',
-		'|',
-		'vsCodeEditor',
-		'findAndReplace',
-		'codeBlock',
-		'|',
-		'heading',
-		'|',
-		'bold',
-		'italic',
-		'fontColor',
-		'underline',
-		'fontSize',
-		'bulletedList',
-		'numberedList',
-		'|',
-		'outdent',
-		'indent',
-		'alignment',
-		'|',
-		'undo',
-		'redo',
-		'horizontalLine',
-		'highlight',
-		'blockQuote',
-		'insertTable',
-		'removeFormat'
-	],
-	toolbar: {
-		items: [
-			'bold',
-			'italic',
-			'link'
-		]
-	},
-	image: {
-		resizeUnit: "%",
-		resizeOptions: [{
-			name: 'resizeImage:original',
-			value: null
-		},
-		{
-			name: 'resizeImage:66',
-			value: '6'
-		},
-		{
-			name: 'resizeImage:15',
-			value: '15'
-		},
-		{
-			name: 'resizeImage:25',
-			value: '25'
-		},
-		{
-			name: 'resizeImage:33',
-			value: '33'
-		},
-		{
-			name: 'resizeImage:50',
-			value: '50'
-		},
-		{
-			name: 'resizeImage:75',
-			value: '75'
-		}],
-		toolbar: [
-			'resizeImage',
-			'imageTextAlternative',
-			'imageStyle:inline',
-			'imageStyle:block',
-			'imageStyle:side',
-			'linkImage',
-			'toggleImageCaption'
-		]
-	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells',
-			'tableCellProperties',
-			'tableProperties'
-		]
-	},
-	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
-};
+//BalloonEditor.defaultConfig = {
+//	
+//};
 
 export default { BalloonEditor, EditorWatchdog };
